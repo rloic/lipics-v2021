@@ -24,6 +24,7 @@ author:
 lipics:
   authorrunning: J. Open Access and J.,R. Public
   ccsdesc: Replace ccsdesc macro with valid one
+  copyright: Jane Open Access and Joan R. Public
   relatedversion:
     name: optional, e.g. full version hosted on arXiv, HAL, or other respository/website
     classification: Classification (e.g. Full Version, Extended Version, Previous Version)
@@ -45,7 +46,6 @@ lipics:
       - name: cite
         value: DBLP:books/mk/GrayR93
   # category: invited paper
-copyright: Jane Open Access and Joan R. Public
 abstract: |
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent convallis orci arcu, eu mollis dolor. Aliquam eleifend suscipit lacinia. Maecenas quam mi, porta ut lacinia sed, convallis ac dui. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse potenti.
 keywords: [Dummy keyword]
