@@ -24,6 +24,7 @@ author:
 lipics:
   authorrunning: J. Open Access and J.,R. Public
   ccsdesc: Replace ccsdesc macro with valid one
+  copyright: Jane Open Access and Joan R. Public
   relatedversion:
     name: optional, e.g. full version hosted on arXiv, HAL, or other respository/website
     classification: Classification (e.g. Full Version, Extended Version, Previous Version)
@@ -44,8 +45,19 @@ lipics:
         value: opt. text shown instead of the URL
       - name: cite
         value: DBLP:books/mk/GrayR93
+  event:
+    editors: [John Q. Open, Joan R. Access]
+    no-eds: 2
+    title: 42nd Conference on Very Important Topics (CVIT 2016)
+    short-title: CVIT 2016
+    acronym: CVIT
+    year: 2016
+    date: December 24--27, 2016
+    location: Little Whinging, United Kingdom
+    logo: ""
+    volume: 42
+    article-no: 23
   # category: invited paper
-copyright: Jane Open Access and Joan R. Public
 abstract: |
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent convallis orci arcu, eu mollis dolor. Aliquam eleifend suscipit lacinia. Maecenas quam mi, porta ut lacinia sed, convallis ac dui. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse potenti.
 keywords: [Dummy keyword]
