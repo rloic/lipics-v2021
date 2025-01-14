@@ -5,6 +5,6 @@
 /template.vtc
 /template.tex
 /template_files
-
+.DS_Store
 
 /.luarc.json
