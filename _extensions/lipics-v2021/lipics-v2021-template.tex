@@ -1,0 +1,151 @@
+
+\documentclass[$if(papersize)$$papersize$, $endif$$for(classoption)$$classoption$$sep$, $endfor$]{lipics-v2021}
+%This is a template for producing LIPIcs articles. 
+%See lipics-v2021-authors-guidelines.pdf for further information.
+%for A4 paper format use option "a4paper", for US-letter use option "letterpaper"
+%for british hyphenation rules use option "UKenglish", for american hyphenation rules use option "USenglish"
+%for section-numbered lemmas etc., use "numberwithinsect"
+%for enabling cleveref support, use "cleveref"
+%for enabling autoref support, use "autoref"
+%for anonymousing the authors (e.g. for double-blind review), add "anonymous"
+%for enabling thm-restate support, use "thm-restate"
+%for enabling a two-column layout for the author/affilation part (only applicable for > 6 authors), use "authorcolumns"
+%for producing a PDF according the PDF/A standard, add "pdfa"
+
+%\pdfoutput=1 %uncomment to ensure pdflatex processing (mandatatory e.g. to submit to arXiv)
+%\hideLIPIcs  %uncomment to remove references to LIPIcs series (logo, DOI, ...), e.g. when preparing a pre-final version to be uploaded to arXiv or another public repository
+
+%\graphicspath{{./graphics/}}%helpful if your graphic files are in another directory
+\providecommand{\tightlist}{}
+\newtheorem*{refremark}{Remark}
+
+\bibliographystyle{plainurl}% the mandatory bibstyle
+
+\title{$title$} %TODO Please add
+
+$if(lipics.titlerunning)$
+\titlerunning{lipics.titlerunning} %TODO optional, please use if title is longer than one line
+$endif$
+
+$for(by-author)$
+\author{$by-author.name.literal$$if(by-author.note)$\footnote{$by-author.note.text$}$endif$}{$for(by-author.affiliations)$$by-author.affiliations.name$$if(by-author.affiliations.address)$, $by-author.affiliations.address$$endif$$if(by-author.affiliations.city)$, $by-author.affiliations.city$$endif$$if(by-author.affiliations.postal-code)$, $by-author.affiliations.postal-code$$endif$$if(by-author.affiliations.country)$, $by-author.affiliations.country$$endif$$sep$ \and $endfor$$if(by-author.url)$$if(by-author.affiliations)$\and $endif$\url{$by-author.url$}$endif$}{$if(by-author.email)$$by-author.email$$endif$}{$if(by-author.orcid)$https://orcid.org/$by-author.orcid$$endif$}{$if(by-author.acknowledgements)$$by-author.acknowledgements$$endif$}
+$endfor$ 
+
+\authorrunning{$lipics.authorrunning$} %TODO mandatory. First: Use abbreviated first/middle names. Second (only in severe cases): Use first author plus 'et al.'
+
+\Copyright{$copyright$} %TODO mandatory, please use full first names. LIPIcs license is "CC-BY";  http://creativecommons.org/licenses/by/3.0/
+
+\ccsdesc[100]{$lipics.ccsdesc$} %TODO mandatory: Please choose ACM 2012 classifications from https://dl.acm.org/ccs/ccs_flat.cfm 
+
+\keywords{$for(keywords)$$keywords$$sep$, $endfor$} %TODO mandatory; please add comma-separated list of keywords
+
+$if(lipics.category)$
+\category{$lipics.category$} %optional, e.g. invited paper
+$endif$
+
+$if(lipics.relatedversion)$
+  $if(lipics.relatedversion.name)$
+\relatedversion{$lipics.relatedversion.name$}
+\relatedversiondetails[$for(lipics.relatedversion.options)$$lipics.relatedversion.options.name$={$lipics.relatedversion.options.value$}$sep$, $endfor$]{$lipics.relatedversion.classification$}{$lipics.relatedversion.url$}
+  $else$
+\relatedversion{$lipics.relatedversion$}
+  $endif$
+$endif$
+
+$if(lipics.supplement)$
+  $if(lipics.supplement.name)$
+\supplement{$lipics.supplement.name$}
+\supplementdetails[subcategory={$for(lipics.supplement.subcategories)$$lipics.supplement.subcategories$$sep$, $endfor$}, swhid={$lipics.supplement.swhid$}, $for(lipics.supplement.options)$$lipics.supplement.options.name$={$lipics.supplement.options.value$}$sep$, $endfor$]{$lipics.supplement.classification$}{$lipics.supplement.url$}
+  $else$
+\supplement{$lipics.supplement$}
+  $endif$
+$endif$
+
+$if(funding)$
+\funding{$funding$}%optional, to capture a funding statement, which applies to all authors. Please enter author specific funding statements as fifth argument of the \author macro.
+$endif$
+
+$if(acknowledgements)$
+\acknowledgements{$acknowledgements$}
+$endif$
+
+$if(lipics.linenumbers)$
+$else$
+\nolinenumbers %uncomment to disable line numbering
+$endif$
+
+\providecommand{\citet}[1]{\cite{#1}}
+\providecommand{\bibsection}{}
+
+%Editor-only macros:: begin (do not touch as author)%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\EventEditors{John Q. Open and Joan R. Access}
+\EventNoEds{2}
+\EventLongTitle{42nd Conference on Very Important Topics (CVIT 2016)}
+\EventShortTitle{CVIT 2016}
+\EventAcronym{CVIT}
+\EventYear{2016}
+\EventDate{December 24--27, 2016}
+\EventLocation{Little Whinging, United Kingdom}
+\EventLogo{}
+\SeriesVolume{42}
+\ArticleNo{23}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+$if(listings)$
+\usepackage{listings}
+\newcommand{\passthrough}[1]{#1}
+\lstset{defaultdialect=[5.3]Lua}
+\lstset{defaultdialect=[x86masm]Assembler}
+$endif$
+
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
+
+$if(tables)$
+\usepackage{longtable,booktabs,array}
+$if(multirow)$
+\usepackage{multirow}
+$endif$
+\usepackage{calc} % for calculating minipage widths
+$if(beamer)$
+\usepackage{caption}
+% Make caption package work with longtable
+\makeatletter
+\def\fnum@table{\tablename~\thetable}
+\makeatother
+$else$
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+$endif$
+$endif$
+
+\begin{document}
+$before-body.tex()$
+
+$for(include-before)$
+$include-before$
+
+$endfor$
+
+$if(linestretch)$
+\setstretch{$linestretch$}
+$endif$
+
+$body$
+
+$before-bib.tex()$
+$biblio.tex()$
+
+$for(include-after)$
+$include-after$
+
+$endfor$
+$after-body.tex()$
+\end{document}

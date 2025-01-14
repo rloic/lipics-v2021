@@ -1,0 +1,35 @@
+title: Lipics-v2021
+author: Loïc Rouquette
+version: 1.0.0
+quarto-required: ">=1.6.0"
+contributes:
+  formats:
+    common:
+      toc: true
+      filters:
+        - lipics-v2021.lua
+        - latex-environment
+    pdf:
+      documentclass: lipics-v2021
+      include-in-header: header.tex
+      format-resources:
+        - cc-by.pdf
+        - lipics-logo-bw.pdf
+        - lipics-v2021.cls
+        - orcid.pdf
+      classoption: [UKenglish, cleveref, autoref, thm-restate]
+      papersize: a4paper
+      template: lipics-v2021-template.tex
+      lipics:
+        linenumbers: true
+      cite-method: natbib
+      environments:
+        - claim
+        - claimproof
+        - observation
+        - note
+        - remark
+      commands:
+        - proofsubparagraph
+    html:
+      css: styles.css
